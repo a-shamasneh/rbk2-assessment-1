@@ -5,11 +5,36 @@ var makeHashTable = function() {
   return {
     _storage: [],
     retrieve: function(key) {
-      //your code is here
+      for(var i=0;i<_storage.length;i++){
+
+       for(var j=0;j<_storage[i].length;j++){
+         if(_storage[i][j][0]==key){
+          return _storage[i][j][1]
+        }
+       }
+       return "no key found "
+      }
     },
 
     insert: function(key, value) {
-      //your code is here
+      if(_storage.length!==0){
+        for(var i=0;i<_storage.length;i++){
+          for(var j=0;i<_storage[i].length;j++){
+             if(_storage[i][j][0]==key){
+              _storage[i][j][1]==value;
+        }
+          }
+       
+      }
+      }
+      else{
+        var bucket=[];
+        var tuple=[key,value];
+        bucket.push(tuple);
+        _storage.push(bucket);
+
+      }
+      
   };
 };
 
@@ -23,3 +48,6 @@ var hashFn = function(str, max) {
   }
   return hash;
 };
+
+///  am not sure about my solution but i have knowledge about hash table how its work  what i under stand is 
+/// let say hash table is represent array [[tuples],[[tuples]],[[tuples]] and each tuples is represnt key as index 0 and value as index 1
